@@ -1,0 +1,29 @@
+cabal-version:      3.14
+name:               rosalind
+version:            0.1.0.0
+build-type:         Simple
+
+common warnings
+    ghc-options: -Wall
+
+library
+  import: warnings
+  exposed-modules:
+    Dna
+    Rna
+    Revc
+    Fib
+    Gc
+    Hamm
+  hs-source-dirs: lib
+  build-depends:
+    base ^>=4.21.0.0, parsec
+  default-language: GHC2024
+
+executable rosalind
+    import:           warnings
+    main-is:          Main.hs
+    build-depends:    base ^>=4.21.0.0,
+                      rosalind,
+    hs-source-dirs:   app
+    default-language: GHC2024
