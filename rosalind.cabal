@@ -15,9 +15,12 @@ library
     Fib
     Gc
     Hamm
+    Iprb
+    Prot
   hs-source-dirs: lib
   build-depends:
-    base ^>=4.21.0.0, parsec
+    base ^>=4.21.0.0, 
+    parsec,
   default-language: GHC2024
 
 executable rosalind

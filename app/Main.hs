@@ -6,6 +6,8 @@ import Gc (solveGc)
 import Hamm (mutations)
 import Revc (reverseComplement)
 import Rna (transcribe)
+import Iprb (mendelLaw)
+import Prot (translate)
 import System.Environment (getArgs)
 
 main :: IO ()
@@ -26,5 +28,7 @@ dispatch =
     ("revc", solve "revc" reverseComplement),
     ("fib", solve "fib" fib),
     ("hamm", solve "hamm" mutations),
-    ("gc", solve "gc" solveGc)
+    ("gc", solve "gc" solveGc),
+    ("iprb", solve "iprb" mendelLaw),
+    ("prot", solve "prot" translate)
   ]
