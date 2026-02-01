@@ -1,13 +1,17 @@
 module Main (main) where
 
+import Cons (consensus)
 import Dna (countNucleotides)
 import Fib (fib)
+import Fibd (fibd)
 import Gc (solveGc)
+import Grph (overlap)
 import Hamm (mutations)
-import Revc (reverseComplement)
-import Rna (transcribe)
 import Iprb (mendelLaw)
 import Prot (translate)
+import Revc (reverseComplement)
+import Rna (transcribe)
+import Subs (motif)
 import System.Environment (getArgs)
 
 main :: IO ()
@@ -30,5 +34,9 @@ dispatch =
     ("hamm", solve "hamm" mutations),
     ("gc", solve "gc" solveGc),
     ("iprb", solve "iprb" mendelLaw),
-    ("prot", solve "prot" translate)
+    ("prot", solve "prot" translate),
+    ("subs", solve "subs" motif),
+    ("fibd", solve "fibd" fibd),
+    ("cons", solve "cons" consensus),
+    ("grph", solve "grph" overlap)
   ]

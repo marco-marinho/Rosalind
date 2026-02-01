@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: "3"
+
+tasks:
+  run:
+    desc: Runs a given problem
+    cmds:
+      - cabal exec rosalind -- {{.CLI_ARGS}}
