@@ -7,7 +7,9 @@ import Fibd (fibd)
 import Gc (solveGc)
 import Grph (overlap)
 import Hamm (mutations)
+import Iev (iev)
 import Iprb (mendelLaw)
+import Lcsm (lcsm)
 import Prot (translate)
 import Revc (reverseComplement)
 import Rna (transcribe)
@@ -38,5 +40,7 @@ dispatch =
     ("subs", solve "subs" motif),
     ("fibd", solve "fibd" fibd),
     ("cons", solve "cons" consensus),
-    ("grph", solve "grph" overlap)
+    ("grph", solve "grph" overlap),
+    ("lcsm", solve "lcsm" lcsm),
+    ("iev", solve "iev" iev)
   ]

@@ -16,7 +16,9 @@ library
     Gc
     Grph
     Hamm
+    Iev
     Iprb
+    Lcsm
     Prot
     Revc
     Rna
@@ -26,6 +28,7 @@ library
   hs-source-dirs: lib
   build-depends:
     base ^>=4.21.0.0,
+    containers,
     parsec,
 
   default-language: GHC2024
