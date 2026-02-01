@@ -10,6 +10,7 @@ import Hamm (mutations)
 import Iev (iev)
 import Iprb (mendelLaw)
 import Lcsm (lcsm)
+import Mrna (mrna)
 import Perm (perm)
 import Prot (translate)
 import Prtm (prtm)
@@ -46,5 +47,6 @@ dispatch =
     ("lcsm", solve "lcsm" lcsm),
     ("iev", solve "iev" iev),
     ("prtm", solve "prtm" prtm),
+    ("mrna", solve "mrna" mrna),
     ("perm", solve "perm" perm)
   ]
