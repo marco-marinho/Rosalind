@@ -1,8 +1,9 @@
 module Lcsm (lcsm) where
 
-import Data.Foldable (maximumBy, minimumBy)
+import Data.Foldable (minimumBy)
 import Data.Function (on)
-import Data.List (inits, isInfixOf, tails)
+import Data.List (find, inits, isInfixOf, sortBy, tails)
+import Data.Maybe (fromMaybe)
 import Data.Set qualified as Set
 import Util (parseInput, sequenceData)
 
@@ -17,6 +18,5 @@ lcsm input = lcsmSub
   where
     fastas = map sequenceData $ parseInput input
     base = minimumBy (compare `on` length) fastas
-    substrings = allSubstrings base
-    commonSubs = filter (isCommonSubstring fastas) substrings
-    lcsmSub = maximumBy (compare `on` length) commonSubs
+    substrings = sortBy (flip compare `on` length) (allSubstrings base)
+    lcsmSub = fromMaybe "" $ find (isCommonSubstring fastas) substrings
