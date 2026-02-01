@@ -10,7 +10,9 @@ import Hamm (mutations)
 import Iev (iev)
 import Iprb (mendelLaw)
 import Lcsm (lcsm)
+import Perm (perm)
 import Prot (translate)
+import Prtm (prtm)
 import Revc (reverseComplement)
 import Rna (transcribe)
 import Subs (motif)
@@ -42,5 +44,7 @@ dispatch =
     ("cons", solve "cons" consensus),
     ("grph", solve "grph" overlap),
     ("lcsm", solve "lcsm" lcsm),
-    ("iev", solve "iev" iev)
+    ("iev", solve "iev" iev),
+    ("prtm", solve "prtm" prtm),
+    ("perm", solve "perm" perm)
   ]

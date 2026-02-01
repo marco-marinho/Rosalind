@@ -19,7 +19,9 @@ library
     Iev
     Iprb
     Lcsm
+    Perm
     Prot
+    Prtm
     Revc
     Rna
     Subs
