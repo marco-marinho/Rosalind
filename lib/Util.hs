@@ -1,5 +1,6 @@
-module Util (Fasta, parseInput, header, sequenceData, codonsMap, Amino (Amino, Stop)) where
+module Util (Fasta, parseInput, header, sequenceData, codonsMap, Amino (Amino, Stop), strReplace) where
 
+import Data.Text qualified as T
 import Text.Parsec
 import Text.Parsec.String (Parser)
 
@@ -93,3 +94,6 @@ parseInput :: String -> [Fasta]
 parseInput input = case parse fastaFile "" input of
   Left err -> error $ show err
   Right fastas -> fastas
+
+strReplace :: String -> String -> String -> String
+strReplace old new str = T.unpack $ T.replace (T.pack old) (T.pack new) (T.pack str)

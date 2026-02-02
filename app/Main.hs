@@ -10,12 +10,14 @@ import Hamm (mutations)
 import Iev (iev)
 import Iprb (mendelLaw)
 import Lcsm (lcsm)
+import Lia (lia)
 import Mrna (mrna)
 import Perm (perm)
 import Prot (translate)
 import Prtm (prtm)
 import Revc (reverseComplement)
 import Rna (transcribe)
+import Splc (splc)
 import Subs (motif)
 import System.Environment (getArgs)
 
@@ -48,5 +50,7 @@ dispatch =
     ("iev", solve "iev" iev),
     ("prtm", solve "prtm" prtm),
     ("mrna", solve "mrna" mrna),
+    ("lia", solve "lia" lia),
+    ("splc", solve "splc" splc),
     ("perm", solve "perm" perm)
   ]

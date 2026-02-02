@@ -19,12 +19,14 @@ library
     Iev
     Iprb
     Lcsm
+    Lia
     Mrna
     Perm
     Prot
     Prtm
     Revc
     Rna
+    Splc
     Subs
     Util
 
@@ -33,6 +35,7 @@ library
     base ^>=4.21.0.0,
     containers,
     parsec,
+    text,
 
   default-language: GHC2024
 
