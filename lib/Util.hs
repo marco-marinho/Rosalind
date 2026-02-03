@@ -1,4 +1,4 @@
-module Util (Fasta, parseInput, header, sequenceData, codonsMap, Amino (Amino, Stop), strReplace) where
+module Util (Fasta, parseInput, header, sequenceData, codonsMap, Amino (Amino, Stop), strReplace, translateTillStop) where
 
 import Data.Text qualified as T
 import Text.Parsec
@@ -97,3 +97,17 @@ parseInput input = case parse fastaFile "" input of
 
 strReplace :: String -> String -> String -> String
 strReplace old new str = T.unpack $ T.replace (T.pack old) (T.pack new) (T.pack str)
+
+translateTillStop' :: [Char] -> [Char] -> [Char]
+translateTillStop' rna acc
+  | null rna = []
+  | otherwise =
+      let (codon, rest) = splitAt 3 rna
+          aminoAcid = lookup codon codonsMap
+       in case aminoAcid of
+            Just Stop -> reverse acc
+            Just (Amino a) -> translateTillStop' rest (a : acc)
+            Nothing -> []
+
+translateTillStop :: [Char] -> [Char]
+translateTillStop rna = translateTillStop' rna []

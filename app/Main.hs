@@ -11,7 +11,9 @@ import Iev (iev)
 import Iprb (mendelLaw)
 import Lcsm (lcsm)
 import Lia (lia)
+import Mprt (mprt)
 import Mrna (mrna)
+import Orf (orf)
 import Perm (perm)
 import Prot (translate)
 import Prtm (prtm)
@@ -20,6 +22,7 @@ import Rna (transcribe)
 import Splc (splc)
 import Subs (motif)
 import System.Environment (getArgs)
+import System.Process (readProcess)
 
 main :: IO ()
 main = do
@@ -31,6 +34,15 @@ main = do
 
 solve :: String -> (String -> String) -> IO ()
 solve name f = readFile ("data/" ++ name ++ ".txt") >>= putStrLn . f
+
+solveMprt :: String -> IO ()
+solveMprt name = do
+  input <- readFile ("data/" ++ name ++ ".txt")
+  let inputs_clean = map (takeWhile (/= '_')) (lines input)
+      request = map (\s -> "https://www.uniprot.org/uniprot/" ++ s ++ ".fasta") inputs_clean
+  responses <- mapM (\r -> filter (/= '\n') . dropWhile (/= '\n') <$> readProcess "curl" ["-s", "-L", r] "") request
+  let res = mprt (zip (lines input) responses)
+  putStrLn res
 
 dispatch :: [(String, IO ())]
 dispatch =
@@ -52,5 +64,7 @@ dispatch =
     ("mrna", solve "mrna" mrna),
     ("lia", solve "lia" lia),
     ("splc", solve "splc" splc),
-    ("perm", solve "perm" perm)
+    ("mprt", solveMprt "mprt"),
+    ("perm", solve "perm" perm),
+    ("orf", solve "orf" orf)
   ]

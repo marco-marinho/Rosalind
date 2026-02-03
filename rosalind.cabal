@@ -20,6 +20,7 @@ library
     Iprb
     Lcsm
     Lia
+    Mprt
     Mrna
     Perm
     Prot
@@ -29,6 +30,7 @@ library
     Splc
     Subs
     Util
+    Orf
 
   hs-source-dirs: lib
   build-depends:
@@ -44,7 +46,9 @@ executable rosalind
   main-is: Main.hs
   build-depends:
     base ^>=4.21.0.0,
+    process,
     rosalind,
+    text,
 
   hs-source-dirs: app
   default-language: GHC2024
