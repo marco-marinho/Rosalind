@@ -19,18 +19,20 @@ library
     Iev
     Iprb
     Lcsm
+    Lexf
     Lia
     Mprt
     Mrna
+    Orf
     Perm
     Prot
     Prtm
     Revc
+    Revp
     Rna
     Splc
     Subs
     Util
-    Orf
 
   hs-source-dirs: lib
   build-depends:
@@ -38,6 +40,7 @@ library
     containers,
     parsec,
     text,
+    vector,
 
   default-language: GHC2024
 

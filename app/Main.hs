@@ -10,6 +10,7 @@ import Hamm (mutations)
 import Iev (iev)
 import Iprb (mendelLaw)
 import Lcsm (lcsm)
+import Lexf (lexf)
 import Lia (lia)
 import Mprt (mprt)
 import Mrna (mrna)
@@ -18,6 +19,7 @@ import Perm (perm)
 import Prot (translate)
 import Prtm (prtm)
 import Revc (reverseComplement)
+import Revp (revp)
 import Rna (transcribe)
 import Splc (splc)
 import Subs (motif)
@@ -66,5 +68,7 @@ dispatch =
     ("splc", solve "splc" splc),
     ("mprt", solveMprt "mprt"),
     ("perm", solve "perm" perm),
-    ("orf", solve "orf" orf)
+    ("orf", solve "orf" orf),
+    ("revp", solve "revp" revp),
+    ("lexf", solve "lexf" lexf)
   ]
