@@ -11,6 +11,7 @@ import Iev (iev)
 import Iprb (mendelLaw)
 import Lcsm (lcsm)
 import Lexf (lexf)
+import Lgis (lgis)
 import Lia (lia)
 import Mprt (mprt)
 import Mrna (mrna)
@@ -70,5 +71,6 @@ dispatch =
     ("perm", solve "perm" perm),
     ("orf", solve "orf" orf),
     ("revp", solve "revp" revp),
-    ("lexf", solve "lexf" lexf)
+    ("lexf", solve "lexf" lexf),
+    ("lgis", solve "lgis" lgis)
   ]

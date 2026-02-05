@@ -20,6 +20,7 @@ library
     Iprb
     Lcsm
     Lexf
+    Lgis
     Lia
     Mprt
     Mrna
@@ -36,6 +37,7 @@ library
 
   hs-source-dirs: lib
   build-depends:
+    array,
     base ^>=4.21.0.0,
     containers,
     parsec,
